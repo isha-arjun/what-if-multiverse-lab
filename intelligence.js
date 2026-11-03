@@ -40,7 +40,8 @@
   };
   function selectedPair(){
     const all=[...document.querySelectorAll("#characterSelect option")].map(o=>o.textContent);
-    const a=character(), b=all.find(x=>x!==a) || "Iron Man";
+    const a=character(), chosen=$("ai-companion")?.value;
+    const b=chosen && chosen!==a ? chosen : (all.find(x=>x!==a) || "Iron Man");
     return {a,b};
   }
   function renderWorld(){
@@ -159,7 +160,8 @@
     const q=$("ai-question").value.trim();if(!q)return;
     const a=character(),e=event(),c=brain(a),v=eventBrain(e),w=state.world;
     let answer;
-    if(/why|reason|motivat|goal/i.test(q))answer=a+" is driven to "+c.drive+". Their usual method is "+c.method+", though "+c.risk+".";
+    if(/say|dialogue|talk|speak|respond|what would.*(say|tell)/i.test(q))answer=a+": "+c.voice+" I will "+c.drive+" by using "+c.method+". But "+c.risk+".";
+    else if(/why|reason|motivat|goal/i.test(q))answer=a+" is driven to "+c.drive+". Their usual method is "+c.method+", though "+c.risk+".";
     else if(/what if|consequence|happen|outcome|future/i.test(q))answer="In this timeline, "+e+" is shaped by "+v.problem+". Current stability is "+w.stability+"/100 and threat is "+w.threat+"/100. The biggest stakes are "+v.stakes+".";
     else if(/relationship|trust|ally|team/i.test(q)){const {a:x,b}=selectedPair(),r=relScore(x,b);answer=x+" and "+b+": "+r.label+" ("+r.score+"/100). "+$("ai-rel-detail").textContent;}
     else answer="The question is being considered through "+a+"'s perspective. "+c.voice+" In "+e+", the key leverage is "+v.lever+". Current timeline knowledge: "+w.knowledge+"/100.";
@@ -186,7 +188,15 @@
     $("ai-decision")?.addEventListener("keydown",e=>{if(e.key==="Enter")actions["ai-run"]();});
     $("characterSelect")?.addEventListener("change",relationship);
     $("eventSelect")?.addEventListener("change",()=>{const s=$("ai-event-context");if(s)s.textContent=event();});
-    $("ai-event-context").textContent=event();relationship();renderWorld();
+    $("ai-event-context").textContent=event();
+    const companion=$("ai-companion");
+    if(companion){
+      companion.innerHTML=[...document.querySelectorAll("#characterSelect option")].map(o=>'<option value="'+esc(o.textContent)+'">'+esc(o.textContent)+'</option>').join("");
+      const preferred=[...companion.options].find(o=>o.value==="Iron Man") || companion.options[1];
+      if(preferred)companion.value=preferred.value;
+      companion.addEventListener("change",relationship);
+    }
+    relationship();renderWorld();
     const select=$("ai-option");if(select)select.innerHTML=buildOptions(character(),event()).map((o,i)=>'<option value="'+i+'">'+esc(o.label)+'</option>').join("");
     $("characterSelect")?.addEventListener("change",()=>{if(select)select.innerHTML=buildOptions(character(),event()).map((o,i)=>'<option value="'+i+'">'+esc(o.label)+'</option>').join("");});
     $("eventSelect")?.addEventListener("change",()=>{if(select)select.innerHTML=buildOptions(character(),event()).map((o,i)=>'<option value="'+i+'">'+esc(o.label)+'</option>').join("");});
