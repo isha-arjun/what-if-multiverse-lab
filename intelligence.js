@@ -202,5 +202,6 @@
     $("eventSelect")?.addEventListener("change",()=>{if(select)select.innerHTML=buildOptions(character(),event()).map((o,i)=>'<option value="'+i+'">'+esc(o.label)+'</option>').join("");});
     renderWorld();
   }
+  window.multiverseIntelligenceRun = run;
   document.addEventListener("DOMContentLoaded",init);
 })();
