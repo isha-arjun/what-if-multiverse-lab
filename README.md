@@ -1,21 +1,22 @@
 # WHAT IF? — Multiverse Lab
 
-A fan-made alternate-reality sandbox with character-aware event selection and contextual decisions.
+A fan-made alternate-reality sandbox where **every character can be paired with every event** in the current library.
 
 ## How the experiment engine works
-1. Choose a character.
-2. The event selector filters to events associated with that character. For example, Deadpool gets Deadpool-focused story events, while Iron Man and Captain America get different event sets.
-3. Choose an event. Its decision options are generated for that event, with dedicated branches for key character/event combinations.
-4. The simulator calculates a hypothetical timeline branch, causal chain and telemetry.
+1. Choose any character from the character library.
+2. Choose any event from the full event library. Character selection does not restrict the event list.
+3. Each event has its own dedicated decision options. Some important combinations also have custom overrides—for example, Iron Man + The Snap and Captain America + The Sokovia Accords.
+4. The simulator calculates a hypothetical branch, causal chain and timeline telemetry.
 
 Examples:
-- **Iron Man + The Snap:** engineering-focused choices about designing a safer reversal, attempting a rapid reversal, or asking the team to challenge the plan.
+- **Iron Man + The Snap:** engineering-focused decisions about designing a safer reversal, attempting a rapid reversal, or asking the team to challenge the plan.
 - **Captain America + The Sokovia Accords:** choices about independent oversight, refusing external control, or negotiating a rights-based compromise.
-- **Deadpool:** a Deadpool-focused event list, including the fourth-wall crisis, TVA encounter, Weapon X escape, Time-Ripper incident and X-Force mission.
+- **Deadpool + any event:** Deadpool can now be placed into any event in the library, not only Deadpool-focused scenarios.
 
 ## Features
-- Character-specific event filtering
-- Event-specific decision options and character/event overrides
+- All characters × all events are selectable
+- Dedicated event-specific decision sets across the full event library
+- Special character/event decision overrides
 - Rules-based consequence engine: stability, threat, alliance cohesion and technology
 - Searchable character, event and location index
 - Timeline comparison and saved experiments
