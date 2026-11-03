@@ -26,10 +26,56 @@ const characters=[
 ["Spider-Man","street-level hero"],["Iron Man","inventor and strategist"],["Captain America","team leader"],["Thor","cosmic warrior"],["Black Widow","spy and tactician"],["Hulk","powerhouse"],["Hawkeye","precision archer"],["Doctor Strange","master of mystic arts"],["Black Panther","Wakandan leader"],["Shuri","inventor"],["Captain Marvel","cosmic powerhouse"],["Ant-Man","size-shifting hero"],["Wasp","hero and scientist"],["Scarlet Witch","reality-altering magic"],["Vision","synthetic hero"],["Loki","trickster and strategist"],["Thanos","cosmic conqueror"],["Nick Fury","intelligence director"],["Star-Lord","space adventurer"],["Gamora","skilled warrior"],["Rocket","engineer"],["Groot","guardian"],["Daredevil","defender of Hell's Kitchen"],["Ms. Marvel","young hero"],["Moon Knight","mysterious vigilante"],["Shang-Chi","master martial artist"],["Wolverine","mutant hero"],["Storm","weather-controlling mutant"],["Deadpool","unpredictable mercenary"],["Magneto","mutant leader"],["Jean Grey","powerful telepath"],["Cyclops","X-Men field leader"],["Fantastic Four","explorers and family"],["Reed Richards","scientist"],["Sue Storm","force-field specialist"],["Human Torch","flame-powered hero"],["The Thing","super-strong hero"],["Miles Morales","Brooklyn hero"],["Kate Bishop","young archer"],["America Chavez","multiverse traveler"]
 ];
 const events=[
-["Battle of New York","An invasion puts the city and a fragile alliance under pressure."],["The Snap","A universe-changing choice reshapes life across worlds."],["The Time Heist","A mission through history creates unexpected timeline risks."],["The Sokovia Accords","A political decision tests trust between heroes."],["The Battle of Wakanda","A final stand brings strategy, sacrifice and alliances into focus."],["The Multiverse Incursion","Two realities begin to collide."],["The Fall of SHIELD","A hidden threat changes the balance of power."],["The Dark Dimension Crisis","A mystical breach threatens the boundaries of reality."],["The Formation of the Avengers","A group of individuals must decide whether to become a team."],["The Guardians' First Alliance","Unlikely partners face a cosmic threat."],["The Mutant Debate","A new era forces society to confront difference and fear."],["The Quantum Experiment","A scientific breakthrough creates unpredictable consequences."],["The Infinity Stones Hunt","Powerful artifacts attract competing factions."],["The Secret Invasion","Trust becomes the most valuable resource."],["The Celestial Emergence","A planetary-scale mystery forces difficult choices."],["The Siege of Asgard","A realm's future depends on unity and leadership."],["The Multiverse Council","Variants debate whether realities should be protected or changed."],["The Negative Zone Breach","An unknown dimension spills into familiar space."],["The New York Rooftop Crisis","A street-level emergency becomes a citywide turning point."],["The X-Mansion Incident","A crisis tests the bonds of a team."]
+["Battle of New York","An invasion puts the city and a fragile alliance under pressure."],
+["The Snap","A universe-changing choice reshapes life across worlds."],
+["The Time Heist","A mission through history creates unexpected timeline risks."],
+["The Sokovia Accords","A political decision tests trust between heroes."],
+["The Battle of Wakanda","A final stand brings strategy, sacrifice and alliances into focus."],
+["The Multiverse Incursion","Two realities begin to collide."],
+["The Fall of SHIELD","A hidden threat changes the balance of power."],
+["The Dark Dimension Crisis","A mystical breach threatens the boundaries of reality."],
+["The Formation of the Avengers","A group of individuals must decide whether to become a team."],
+["The Guardians' First Alliance","Unlikely partners face a cosmic threat."],
+["The Mutant Debate","A new era forces society to confront difference and fear."],
+["The Quantum Experiment","A scientific breakthrough creates unpredictable consequences."],
+["The Infinity Stones Hunt","Powerful artifacts attract competing factions."],
+["The Secret Invasion","Trust becomes the most valuable resource."],
+["The Celestial Emergence","A planetary-scale mystery forces difficult choices."],
+["The Siege of Asgard","A realm's future depends on unity and leadership."],
+["The Multiverse Council","Variants debate whether realities should be protected or changed."],
+["The Negative Zone Breach","An unknown dimension spills into familiar space."],
+["The New York Rooftop Crisis","A street-level emergency becomes a citywide turning point."],
+["The X-Mansion Incident","A crisis tests the bonds of a team."],
+["Deadpool's Fourth-Wall Crisis","Deadpool discovers the story itself may be changing around him."],
+["The TVA Comes Knocking","A timeline authority takes an interest in Deadpool's unpredictable reality."],
+["The Weapon X Escape","A dangerous past resurfaces and forces a choice about identity."],
+["The Time-Ripper Incident","A device capable of tearing through timelines creates chaos."],
+["The X-Force Mission","A risky mission tests Deadpool's leadership and team instincts."],
+["The Armor Protocol Failure","An Iron Man suit network behaves in a way Tony never intended."],
+["The Arc Reactor Crisis","A breakthrough in clean energy creates a dangerous new dependency."],
+["The Ultron Decision","Tony's plan for global protection reaches a critical turning point."],
+["The Winter Soldier Revelation","Steve discovers a truth that challenges his trust in institutions."],
+["The Shield's Legacy","Captain America must decide what the shield should represent next."]
 ];
+const characterEventMap={
+"Deadpool":["Deadpool's Fourth-Wall Crisis","The TVA Comes Knocking","The Weapon X Escape","The Time-Ripper Incident","The X-Force Mission"],
+"Iron Man":["The Armor Protocol Failure","The Arc Reactor Crisis","Battle of New York","The Snap","The Ultron Decision","The Time Heist","The Infinity Stones Hunt"],
+"Captain America":["The Sokovia Accords","The Winter Soldier Revelation","The Shield's Legacy","Battle of New York","The Time Heist","The Fall of SHIELD"],
+"Spider-Man":["Battle of New York","The Snap","The Multiverse Incursion","The New York Rooftop Crisis","The Time Heist"],
+"Doctor Strange":["The Dark Dimension Crisis","The Multiverse Incursion","The Multiverse Council","The Time Heist","The Snap"],
+"Black Panther":["The Battle of Wakanda","The Mutant Debate","The Secret Invasion","The Celestial Emergence"],
+"Thor":["The Siege of Asgard","The Snap","The Battle of Wakanda","The Guardians' First Alliance"],
+"Scarlet Witch":["The Dark Dimension Crisis","The Multiverse Incursion","The Snap","The Multiverse Council"],
+"Nick Fury":["The Fall of SHIELD","The Secret Invasion","Battle of New York","The Sokovia Accords"],
+"Star-Lord":["The Guardians' First Alliance","The Snap","The Infinity Stones Hunt","The Celestial Emergence"],
+"Wolverine":["The X-Mansion Incident","The Mutant Debate","The Weapon X Escape","The Multiverse Incursion"],
+"Magneto":["The Mutant Debate","The X-Mansion Incident","The Multiverse Council"],
+"Fantastic Four":["The Negative Zone Breach","The Celestial Emergence","The Multiverse Incursion","The Multiverse Council"],
+"Reed Richards":["The Negative Zone Breach","The Quantum Experiment","The Multiverse Incursion","The Multiverse Council"],
+"America Chavez":["The Multiverse Incursion","The Multiverse Council","The Time Heist","The Negative Zone Breach"]
+};
 const places=["New York City","Wakanda","Asgard","Sanctum Sanctorum","Knowhere","Quantum Realm","X-Mansion","Avengers Compound","Kamar-Taj","The Raft","Titan","Westview","Sakaar","The Baxter Building","Hell's Kitchen","The Multiverse Nexus"];
-const decisions=[
+const baseDecisions=[
 ["Protect the alliance","Prioritize coordination and shared intelligence.",{stability:9,threat:-8,unity:17,tech:3}],
 ["Act alone","Move quickly without waiting for consensus.",{stability:-7,threat:8,unity:-14,tech:6}],
 ["Trust an unlikely ally","Give a rival or outsider a chance to help.",{stability:2,threat:-4,unity:12,tech:1}],
@@ -39,18 +85,96 @@ const decisions=[
 ["Negotiate before fighting","Attempt a diplomatic solution.",{stability:6,threat:-11,unity:5,tech:0}],
 ["Change the plan at the last second","Abandon the expected strategy for a new approach.",{stability:-4,threat:-1,unity:-2,tech:12}]
 ];
+const eventChoices={
+"The Snap":[
+["Build a safeguard before acting","Tony tries to reduce the risk of another universe-wide catastrophe.",{stability:8,threat:-5,unity:5,tech:17}],
+["Attempt the reversal immediately","Take the fastest route, accepting uncertainty.",{stability:-8,threat:4,unity:2,tech:8}],
+["Search for another way to restore balance","Investigate alternatives before making an irreversible move.",{stability:12,threat:-9,unity:7,tech:5}]
+],
+"The Sokovia Accords":[
+["Sign the Accords","Accept oversight to preserve public trust.",{stability:7,threat:-4,unity:-8,tech:1}],
+["Refuse and defend independent action","Keep the team free to act, even if it divides allies.",{stability:-5,threat:5,unity:-13,tech:0}],
+["Propose a third framework","Negotiate transparent rules with independent review.",{stability:8,threat:-6,unity:13,tech:3}]
+],
+"Deadpool's Fourth-Wall Crisis":[
+["Talk directly to the audience","Use the fourth wall to search for clues about the branching story.",{stability:-4,threat:-3,unity:2,tech:4}],
+["Ignore the narration and improvise","Refuse to follow the expected sequence of events.",{stability:-9,threat:5,unity:1,tech:0}],
+["Find out who is editing the timeline","Investigate the force rearranging the story.",{stability:5,threat:-7,unity:4,tech:8}]
+],
+"The TVA Comes Knocking":[
+["Cooperate with the TVA","Hear their explanation before choosing a side.",{stability:12,threat:-8,unity:-2,tech:5}],
+["Make a chaotic escape","Avoid capture and accept timeline instability.",{stability:-12,threat:8,unity:3,tech:2}],
+["Expose the TVA's blind spots","Use unexpected tactics to challenge their authority.",{stability:-2,threat:-4,unity:8,tech:11}]
+],
+"The Weapon X Escape":[
+["Rescue the other test subjects","Prioritize people still trapped in the facility.",{stability:6,threat:-5,unity:12,tech:0}],
+["Destroy the program's records","Prevent the research from being repeated.",{stability:2,threat:-8,unity:3,tech:-4}],
+["Uncover who funded the program","Follow the evidence to a larger conspiracy.",{stability:-1,threat:-2,unity:4,tech:7}]
+],
+"The Time-Ripper Incident":[
+["Disable the device carefully","Stabilize the timeline before it spreads.",{stability:13,threat:-7,unity:4,tech:8}],
+["Redirect the energy into a controlled portal","Take a technical risk to turn the crisis into an opportunity.",{stability:-7,threat:-2,unity:1,tech:18}],
+["Let Deadpool improvise","An unpredictable move may create an unexpected exit.",{stability:-11,threat:6,unity:5,tech:1}]
+],
+"The X-Force Mission":[
+["Make a proper plan with the team","Give everyone a clear role before the mission begins.",{stability:8,threat:-6,unity:15,tech:2}],
+["Go in with maximum improvisation","Rely on surprise rather than coordination.",{stability:-5,threat:4,unity:-3,tech:1}],
+["Change the mission objective","Prioritize the unexpected opportunity over the original brief.",{stability:-2,threat:-3,unity:5,tech:4}]
+],
+"The Armor Protocol Failure":[
+["Shut down the network remotely","Contain the malfunction before it spreads.",{stability:10,threat:-9,unity:2,tech:-4}],
+["Let the suits isolate the fault","Trust the system to diagnose itself.",{stability:-8,threat:8,unity:-2,tech:12}],
+["Build a new failsafe with the team","Combine human judgment with a redesigned control system.",{stability:7,threat:-5,unity:10,tech:16}]
+],
+"The Arc Reactor Crisis":[
+["Release the clean-energy design openly","Make the technology widely accessible.",{stability:6,threat:-3,unity:8,tech:9}],
+["Keep the breakthrough under tight control","Limit access until its risks are understood.",{stability:3,threat:-6,unity:-5,tech:12}],
+["Bring in independent scientists","Invite outside review before deployment.",{stability:10,threat:-8,unity:9,tech:7}]
+],
+"The Ultron Decision":[
+["Pause the global defense project","Reassess the risks before giving it more authority.",{stability:10,threat:-8,unity:5,tech:-5}],
+["Proceed with strict human oversight","Continue, but keep people in control of every critical decision.",{stability:3,threat:-3,unity:4,tech:12}],
+["Ask the team to challenge the design","Invite dissenting views before the system is activated.",{stability:8,threat:-6,unity:13,tech:5}]
+],
+"The Winter Soldier Revelation":[
+["Trust Steve's instincts and investigate","Follow the evidence even if it challenges powerful allies.",{stability:-2,threat:-5,unity:7,tech:1}],
+["Expose the truth immediately","Make the information public before it can be buried.",{stability:-7,threat:5,unity:4,tech:0}],
+["Protect allies while gathering proof","Build a careful case and keep people informed.",{stability:8,threat:-4,unity:11,tech:2}]
+],
+"The Shield's Legacy":[
+["Keep the symbol independent","Protect the shield's meaning from political control.",{stability:4,threat:-2,unity:3,tech:0}],
+["Create a new team around shared values","Make the symbol a promise of cooperation.",{stability:7,threat:-5,unity:15,tech:1}],
+["Retire the symbol and start fresh","Let actions matter more than a legacy object.",{stability:-1,threat:-3,unity:6,tech:0}]
+]
+};
+const pairChoices={
+"Iron Man|The Snap":[
+["Design a safer reversal system","Tony uses engineering to reduce the chance of another catastrophic outcome.",{stability:10,threat:-7,unity:5,tech:20}],
+["Attempt the reversal with the available tech","Act quickly with the tools already at hand.",{stability:-8,threat:5,unity:3,tech:11}],
+["Ask the other heroes to challenge the plan","Invite strategic and ethical review before proceeding.",{stability:8,threat:-4,unity:15,tech:7}]
+],
+"Captain America|The Sokovia Accords":[
+["Sign only with independent oversight","Accept accountability, but insist on safeguards against misuse.",{stability:8,threat:-5,unity:4,tech:0}],
+["Refuse to surrender the team's judgment","Protect freedom of action, risking a deeper split.",{stability:-5,threat:5,unity:-15,tech:0}],
+["Negotiate a rights-based compromise","Build a framework that protects civilians and individual conscience.",{stability:9,threat:-6,unity:16,tech:1}]
+]
+};
+
 let current=null,lastPair=null;
 const $=id=>document.getElementById(id);
 const clamp=n=>Math.max(0,Math.min(100,n));
-function init(){ $('characterSelect').innerHTML=characters.map((x,i)=>'<option value="'+i+'">'+x[0]+'</option>').join('');$('eventSelect').innerHTML=events.map((x,i)=>'<option value="'+i+'">'+x[0]+'</option>').join('');$('comboCount').textContent=(characters.length*events.length*places.length*decisions.length).toLocaleString();$('characterSelect').value=0;$('eventSelect').value=0;renderChoices();renderCatalog();updateSaved(); }
+function allowedEvents(characterName){const names=characterEventMap[characterName];return names?events.filter(e=>names.includes(e[0])):events.filter(e=>!e[0].startsWith("Deadpool")&&!["The TVA Comes Knocking","The Weapon X Escape","The Time-Ripper Incident","The X-Force Mission"].includes(e[0]));}
+function getChoices(characterName,eventName){return pairChoices[characterName+"|"+eventName]||eventChoices[eventName]||baseDecisions.slice(0,4);}
+function init(){ $('characterSelect').innerHTML=characters.map((x,i)=>'<option value="'+i+'">'+x[0]+'</option>').join('');$('characterSelect').value=0;refreshEvents();$('comboCount').textContent=(characters.length*events.length*16*8).toLocaleString();renderCatalog();updateSaved();$('characterSelect').addEventListener('change',()=>{refreshEvents();$('resultArea').classList.add('hidden');$('labTitle').textContent='Choose a point of divergence';});$('eventSelect').addEventListener('change',()=>{renderChoices();$('resultArea').classList.add('hidden');$('labTitle').textContent='Choose a point of divergence';});}
+function refreshEvents(preferred){const name=characters[+$('characterSelect').value][0],available=allowedEvents(name),previous=preferred||$('eventSelect').value;$('eventSelect').innerHTML=available.map(e=>'<option value="'+events.indexOf(e)+'">'+e[0]+'</option>').join('');const match=available.find(e=>String(events.indexOf(e))===String(previous));$('eventSelect').value=String(events.indexOf(match||available[0]));$('scenarioTitle').textContent=available[0][0];$('scenarioDesc').textContent=available[0][1];renderChoices();}
 function switchTab(tab){document.querySelectorAll('.tabs').forEach(x=>x.classList.remove('active'));$('tab-'+tab).classList.add('active');document.querySelectorAll('.nav button').forEach(x=>x.classList.toggle('active',x.dataset.tab===tab));if(tab==='saved')renderSaved();}
-function renderChoices(){ $('choiceArea').innerHTML=decisions.slice(0,4).map((d,i)=>'<button class="choice" onclick="runChoice('+i+')"><em>OPTION 0'+(i+1)+'</em><strong>'+d[0]+'</strong><small>'+d[1]+'</small></button>').join('');}
-function runChoice(i){const c=characters[+$('characterSelect').value],e=events[+$('eventSelect').value],d=decisions[i],place=places[Math.floor(Math.random()*places.length)],base={stability:92,threat:34,unity:78,tech:61};let m={};Object.keys(base).forEach(k=>m[k]=clamp(base[k]+d[2][k]+Math.round(Math.random()*10-5)));const outcome= m.stability>75&&m.unity>65?'A fragile but promising branch':m.threat>65?'A high-risk reality emerges':m.tech>75?'A technology-driven future takes shape':'An unpredictable new timeline forms';current={id:Date.now(),character:c[0],event:e[0],decision:d[0],place,metrics:m,outcome,created:new Date().toLocaleString(),chain:[e[1],c[0]+' chooses to '+d[0].toLowerCase()+'.','The situation shifts around '+place+'.',outcome+'.']};showCurrent();}
-function showCurrent(){const x=current;$('scenarioTitle').textContent=x.event;$('scenarioDesc').textContent=x.character+' becomes central to a turning point at '+x.place+'. '+events.find(e=>e[0]===x.event)[1];$('resultTitle').textContent=x.outcome;$('resultText').textContent='Decision: '+x.decision+'. This branch changes the balance of power and creates consequences that ripple beyond the original event.';$('branchList').innerHTML=x.chain.map((s,i)=>'<div class="branch"><b>0'+(i+1)+' · '+['DIVERGENCE','DECISION','RIPPLE','NEW REALITY'][i]+'</b><br>'+s+'</div>').join('');$('resultArea').classList.remove('hidden');$('labTitle').textContent='Alternate timeline generated';$('branchPill').textContent='VARIANT '+String.fromCharCode(65+Math.floor(Math.random()*26));Object.entries(x.metrics).forEach(([k,v])=>{$(k).textContent=v;$ (k+'Bar').style.width=v+'%'});$('stabilityLabel').textContent=x.metrics.stability>70?'STABLE':x.metrics.stability>40?'UNSTABLE':'CRITICAL';$('timeline').innerHTML=x.chain.map((s,i)=>'<div class="moment"><b>'+['DIVERGENCE','DECISION','CONSEQUENCE','OUTCOME'][i]+'</b><p>'+s+'</p></div>').join('');}
-function randomExperiment(){ $('characterSelect').value=Math.floor(Math.random()*characters.length);$('eventSelect').value=Math.floor(Math.random()*events.length);switchTab('lab');runChoice(Math.floor(Math.random()*decisions.length));}
-function makeComparison(){const oldChar=$('characterSelect').value,oldEvent=$('eventSelect').value;const a=decisions[Math.floor(Math.random()*decisions.length)],b=decisions[Math.floor(Math.random()*decisions.length)];const char=characters[+$('characterSelect').value][0],event=events[+$('eventSelect').value][0];const make=d=>{let m={};['stability','threat','unity','tech'].forEach(k=>m[k]=clamp(({stability:70,threat:45,unity:55,tech:50})[k]+d[2][k]));return {d:d[0],m,out:m.stability>70?'More stable branch':m.threat>65?'Escalating threat':'Uncertain future'}};const x=make(a),y=make(b);lastPair=[x,y];$('comparison').innerHTML=[x,y].map((v,i)=>'<div class="tile"><div class="mini">REALITY '+(i?'B':'A')+'</div><h3>'+v.d+'</h3><p>'+v.out+' · '+char+' during '+event+'</p>'+Object.entries(v.m).map(([k,n])=>'<p>'+k+': <b>'+n+'</b></p>').join('')+'</div>').join('');}
+function renderChoices(){const character=characters[+$('characterSelect').value][0],event=events[+$('eventSelect').value][0],choices=getChoices(character,event);$('choiceArea').innerHTML=choices.map((d,i)=>'<button class="choice" onclick="runChoice('+i+')"><em>OPTION 0'+(i+1)+'</em><strong>'+d[0]+'</strong><small>'+d[1]+'</small></button>').join('');}
+function runChoice(i){const c=characters[+$('characterSelect').value],e=events[+$('eventSelect').value],choices=getChoices(c[0],e[0]),d=choices[i],place=places[Math.floor(Math.random()*places.length)],base={stability:92,threat:34,unity:78,tech:61};let m={};Object.keys(base).forEach(k=>m[k]=clamp(base[k]+d[2][k]+Math.round(Math.random()*10-5)));const outcome=m.stability>75&&m.unity>65?'A fragile but promising branch':m.threat>65?'A high-risk reality emerges':m.tech>75?'A technology-driven future takes shape':'An unpredictable new timeline forms';current={id:Date.now(),character:c[0],event:e[0],decision:d[0],place,metrics:m,outcome,created:new Date().toLocaleString(),chain:[e[1],c[0]+' chooses to '+d[0].toLowerCase()+'.','The situation shifts around '+place+'.',outcome+'.']};showCurrent();}
+function showCurrent(){const x=current;$('scenarioTitle').textContent=x.event;$('scenarioDesc').textContent=x.character+' becomes central to a turning point at '+x.place+'. '+events.find(e=>e[0]===x.event)[1];$('resultTitle').textContent=x.outcome;$('resultText').textContent='Decision: '+x.decision+'. This branch changes the balance of power and creates consequences that ripple beyond the original event.';$('branchList').innerHTML=x.chain.map((s,i)=>'<div class="branch"><b>0'+(i+1)+' · '+['DIVERGENCE','DECISION','RIPPLE','NEW REALITY'][i]+'</b><br>'+s+'</div>').join('');$('resultArea').classList.remove('hidden');$('labTitle').textContent='Alternate timeline generated';$('branchPill').textContent='VARIANT '+String.fromCharCode(65+Math.floor(Math.random()*26));Object.entries(x.metrics).forEach(([k,v])=>{$(k).textContent=v;$(k+'Bar').style.width=v+'%'});$('stabilityLabel').textContent=x.metrics.stability>70?'STABLE':x.metrics.stability>40?'UNSTABLE':'CRITICAL';$('timeline').innerHTML=x.chain.map((s,i)=>'<div class="moment"><b>'+['DIVERGENCE','DECISION','CONSEQUENCE','OUTCOME'][i]+'</b><p>'+s+'</p></div>').join('');}
+function randomExperiment(){const ci=Math.floor(Math.random()*characters.length);$('characterSelect').value=ci;refreshEvents();const available=allowedEvents(characters[ci][0]),event=available[Math.floor(Math.random()*available.length)];$('eventSelect').value=String(events.indexOf(event));renderChoices();switchTab('lab');runChoice(Math.floor(Math.random()*getChoices(characters[ci][0],event[0]).length));}
+function makeComparison(){const char=characters[+$('characterSelect').value][0],event=events[+$('eventSelect').value][0],choices=getChoices(char,event),a=choices[Math.floor(Math.random()*choices.length)],b=choices[Math.floor(Math.random()*choices.length)];const make=d=>{let m={};['stability','threat','unity','tech'].forEach(k=>m[k]=clamp(({stability:70,threat:45,unity:55,tech:50})[k]+d[2][k]));return {d:d[0],m,out:m.stability>70?'More stable branch':m.threat>65?'Escalating threat':'Uncertain future'}};const x=make(a),y=make(b);lastPair=[x,y];$('comparison').innerHTML=[x,y].map((v,i)=>'<div class="tile"><div class="mini">REALITY '+(i?'B':'A')+'</div><h3>'+v.d+'</h3><p>'+v.out+' · '+char+' during '+event+'</p>'+Object.entries(v.m).map(([k,n])=>'<p>'+k+': <b>'+n+'</b></p>').join('')+'</div>').join('');}
 function renderCatalog(){const q=$('search').value.toLowerCase(),f=$('catalogFilter').value;let items=[...characters.map(x=>({type:'character',name:x[0],desc:x[1]})),...events.map(x=>({type:'event',name:x[0],desc:x[1]})),...places.map(x=>({type:'place',name:x,desc:'A location available as a scenario setting.'}))].filter(x=>(f==='all'||x.type===f)&&(x.name+' '+x.desc).toLowerCase().includes(q));$('catalogCount').textContent=items.length+' entries';$('catalog').innerHTML=items.map(x=>'<article class="tile"><div class="mini">'+x.type+'</div><h3>'+x.name+'</h3><p>'+x.desc+'</p><button class="btn" onclick="useIngredient(\''+x.name+'\',\''+x.type+'\')">Use in lab</button></article>').join('');}
-function useIngredient(name,type){if(type==='character')$('characterSelect').value=characters.findIndex(x=>x[0]===name);if(type==='event')$('eventSelect').value=events.findIndex(x=>x[0]===name);if(type==='place'){}switchTab('lab');}
+function useIngredient(name,type){if(type==='character'){$('characterSelect').value=characters.findIndex(x=>x[0]===name);refreshEvents();}if(type==='event'){const currentName=characters[+$('characterSelect').value][0],allowed=allowedEvents(currentName);if(allowed.some(e=>e[0]===name))$('eventSelect').value=String(events.findIndex(e=>e[0]===name));else{const match=characters.findIndex(c=>(characterEventMap[c[0]]||[]).includes(name));if(match>=0){$('characterSelect').value=match;refreshEvents();$('eventSelect').value=String(events.findIndex(e=>e[0]===name));}}renderChoices();}switchTab('lab');}
 function saveReality(){if(!current)return;let s=JSON.parse(localStorage.getItem('multiverseSaved')||'[]');s.unshift(current);localStorage.setItem('multiverseSaved',JSON.stringify(s.slice(0,100)));updateSaved();alert('Reality saved to this browser.');}
 function updateSaved(){let s=JSON.parse(localStorage.getItem('multiverseSaved')||'[]');$('savedCount').textContent=s.length;}
 function renderSaved(){let s=JSON.parse(localStorage.getItem('multiverseSaved')||'[]');$('savedList').innerHTML=s.length?s.map(x=>'<div class="saved-item"><div><b>'+x.event+' · '+x.character+'</b><div class="muted small">'+x.decision+' — '+x.created+'</div></div><span class="pill">'+x.metrics.stability+' STAB</span></div>').join(''):'<p class="muted">No realities saved yet. Run an experiment and save a branch.</p>';}
