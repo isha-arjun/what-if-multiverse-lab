@@ -27,3 +27,20 @@ Open `index.html` in a modern browser. To publish with GitHub Pages, open the re
 
 ## Fan-work notice
 This is an unofficial, non-commercial fan-made project and is not affiliated with, endorsed by, or sponsored by Marvel or Disney. Character and franchise names belong to their respective rights holders. Scenario descriptions and simulation logic are original. The project does not reproduce official scripts, dialogue or story text.
+
+## Intelligence Studio
+
+The project now includes a persistent, AI-inspired simulation layer in `intelligence.js`.
+
+### What it adds
+- **Relationship intelligence:** estimates character compatibility using known relationship patterns and shared character traits.
+- **Free-text decisions:** enter a decision in your own words. A transparent intent parser classifies broad strategies such as rescue, negotiation, research, engineering, confrontation, deception and containment.
+- **Causal state:** decisions update timeline stability, threat, alliance trust, resources and knowledge.
+- **Persistent memory:** the active timeline and its decision history are saved in browser local storage.
+- **Branching realities:** save named snapshots, load them later and continue from their saved world state.
+- **Timeline analysis:** ask questions about motivations, relationships and current consequences; compare alternative strategies from the same current state.
+
+### Important distinction: AI-inspired vs. a real language model
+The current project remains a static, dependency-free website. Its Intelligence Studio uses deterministic rules and procedural narrative logic; it does **not** call a machine-learning model or an external LLM. This keeps the app free to run and avoids exposing API keys in browser code.
+
+A real generative-AI connection should be added through a secure server-side endpoint (for example, a small backend that keeps provider credentials private). The model should narrate and explain possibilities, while the deterministic simulation remains authoritative for world state and consequences.
